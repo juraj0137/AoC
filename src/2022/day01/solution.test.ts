@@ -1,8 +1,26 @@
-import { solve } from './solution';
+import { solvePart1, solvePart2 } from './solution';
 
-describe('Day 01 Solution (2023)', () => {
-    it('should solve the example input', () => {
-        const input = `1\n2\n3\n4`;
-        expect(solve(input)).toBe(10); // 1 + 2 + 3 + 4 = 10
+describe('Day 1 Solution (2022)', () => {
+    const input = `1000
+2000
+3000
+
+4000
+
+5000
+6000
+
+7000
+8000
+9000
+
+10000`;
+
+    it('should solve Part 1', () => {
+        expect(solvePart1(input)).toEqual(24000);
+    });
+
+    it('should solve Part 2', () => {
+        expect(solvePart2(input)).toEqual(45000);
     });
 });
