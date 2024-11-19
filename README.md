@@ -13,7 +13,7 @@ A TypeScript project for solving Advent of Code puzzles using TDD.
 
 -   `npm run scaffold <year> <day>`: Scaffold a new day's files.
 -   `npm run test:latest`: Run tests in watch mode for the latest puzzle.
--   `npm run start <year> <day>`: Execute a solution dynamically.
+-   `npm run start <year> <day> <part 1|2>`: Execute a solution dynamically.
 -   `npm run lint`: Run ESLint to check code quality.
 -   `npm run format`: Format code using Prettier.
 -   `npm run test`: Run all tests.

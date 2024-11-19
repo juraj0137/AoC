@@ -11,26 +11,32 @@ if (!year || !day) {
 const dayDir = path.resolve(`src/${year}/day${day.padStart(2, '0')}`);
 fs.ensureDirSync(dayDir);
 
-fs.writeFileSync(
-    path.join(dayDir, 'input.txt'),
-    '', // Empty input file
-);
+fs.writeFileSync(path.join(dayDir, 'input.txt'), '');
 
 fs.writeFileSync(
     path.join(dayDir, 'solution.ts'),
-    `export const solve = (input: string): any => {
-    return null; // Implement your solution here
+    `export const solvePart1 = (input: string): any => {
+    return null; // Implement Part 1 solution here
+  };
+
+  export const solvePart2 = (input: string): any => {
+    return null; // Implement Part 2 solution here
   };`,
 );
 
 fs.writeFileSync(
     path.join(dayDir, 'solution.test.ts'),
-    `import { solve } from './solution';
+    `import { solvePart1, solvePart2 } from './solution';
 
   describe('Day ${day} Solution (${year})', () => {
-    it('should solve the example input', () => {
-      const input = ''; // Add example input
-      expect(solve(input)).toEqual(null); // Replace with expected output
+    const input = ''; // Add example input
+
+    it('should solve Part 1', () => {
+      expect(solvePart1(input)).toEqual(null); // Replace with expected result for Part 1
+    });
+
+    it('should solve Part 2', () => {
+      expect(solvePart2(input)).toEqual(null); // Replace with expected result for Part 2
     });
   });`,
 );

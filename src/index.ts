@@ -11,17 +11,18 @@ type Solution = (input: string) => any;
 const loadSolution = async (
     year: number,
     day: number,
-): Promise<Solution | null> => {
+): Promise<{ part1: Solution; part2: Solution } | null> => {
     const dayPath = path.resolve(
         rootDir,
         `./${year}/day${String(day).padStart(2, '0')}/solution.ts`,
     );
     try {
-        const fileUrl = pathToFileURL(dayPath).href; // Convert the file path to a `file://` URL
-        const { solve } = await import(fileUrl);
-        return solve;
+        const { solvePart1, solvePart2 } = await import(
+            pathToFileURL(dayPath).href
+        );
+        return { part1: solvePart1, part2: solvePart2 };
     } catch (err) {
-        console.error(`Could not load solution: ${err}`);
+        console.error(`Could not load solution: ${err.message}`);
         return null;
     }
 };
@@ -29,13 +30,14 @@ const loadSolution = async (
 const main = async () => {
     const year = parseInt(process.argv[2]);
     const day = parseInt(process.argv[3]);
+    const part = parseInt(process.argv[4]) || 1; // Default to Part 1
     const inputPath = path.resolve(
         rootDir,
         `./${year}/day${String(day).padStart(2, '0')}/input.txt`,
     );
 
     if (isNaN(year) || isNaN(day)) {
-        console.error('Usage: npm run start <year> <day>');
+        console.error('Usage: npm run start <year> <day> [part]');
         return;
     }
 
@@ -48,7 +50,9 @@ const main = async () => {
     const input = fs.existsSync(inputPath)
         ? fs.readFileSync(inputPath, 'utf8')
         : '';
-    console.log(`Solution for Year ${year}, Day ${day}:`, solution(input));
+    const result = part === 2 ? solution.part2(input) : solution.part1(input);
+
+    console.log(`Solution for Year ${year}, Day ${day}, Part ${part}:`, result);
 };
 
 main();
