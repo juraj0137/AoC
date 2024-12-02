@@ -16,11 +16,11 @@ fs.writeFileSync(path.join(dayDir, 'input.txt'), '');
 fs.writeFileSync(
     path.join(dayDir, 'solution.ts'),
     `export const solvePart1 = (input: string): any => {
-    return null; // Implement Part 1 solution here
+    return null;
   };
 
   export const solvePart2 = (input: string): any => {
-    return null; // Implement Part 2 solution here
+    return null;
   };`,
 );
 
@@ -29,14 +29,14 @@ fs.writeFileSync(
     `import { solvePart1, solvePart2 } from './solution';
 
   describe('Day ${day} Solution (${year})', () => {
-    const input = ''; // Add example input
+    const input = \`\`; 
 
     it('should solve Part 1', () => {
-      expect(solvePart1(input)).toEqual(null); // Replace with expected result for Part 1
+      expect(solvePart1(input)).toEqual(null); 
     });
 
     it('should solve Part 2', () => {
-      expect(solvePart2(input)).toEqual(null); // Replace with expected result for Part 2
+      expect(solvePart2(input)).toEqual(null); 
     });
   });`,
 );
