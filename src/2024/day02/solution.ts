@@ -43,11 +43,9 @@ function isReportSafe(levels: number[]) {
 
 export function isReportSafeWithOneError(levelsInput: string) {
     const levels = parseLevels(levelsInput);
-
-    return levels.some((_, i) => {
-        const modifiedLevels = [...levels.slice(0, i), ...levels.slice(i + 1)];
-        return isReportSafe(modifiedLevels);
-    });
+    return levels.some((_, i) =>
+        isReportSafe([...levels.slice(0, i), ...levels.slice(i + 1)]),
+    );
 }
 
 export const solvePart1 = (input: string): any => {

@@ -26,7 +26,6 @@ A TypeScript project for solving Advent of Code puzzles using TDD.
 npm install
 ```
 
-
 ## Project structure
 
 ```
