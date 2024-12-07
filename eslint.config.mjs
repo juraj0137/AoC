@@ -20,15 +20,12 @@ export default [
         plugins: {
             '@typescript-eslint': typescriptEslint,
         },
-
         languageOptions: {
             globals: {
                 ...globals.node,
             },
-
             parser: tsParser,
         },
-
         rules: {
             'prettier/prettier': 'error',
         },
