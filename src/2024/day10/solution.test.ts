@@ -3,7 +3,6 @@ import {
     solvePart2,
     parseMap,
     findStartPoints,
-    findPaths,
     getNumberOfReachableEnds,
     getNumberOfUniquePaths,
 } from './solution';
