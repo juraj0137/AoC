@@ -1,4 +1,7 @@
-export const addVectors = <T extends number[]>(vector1: T, vector2: T): T => {
+export const addVectors = <T extends number[]>(
+    vector1: T,
+    vector2: number[],
+): T => {
     if (vector1.length !== vector2.length) {
         throw new Error('Vectors must have the same length.');
     }
