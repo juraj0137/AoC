@@ -1,4 +1,4 @@
-import { dijkstra, Graph, Path } from './dijkstra';
+import { dijkstra, Graph, Path } from '../../alg/dijkstra';
 
 const directions = {
     N: { dx: 0, dy: -1 },
